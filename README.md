@@ -1,5 +1,10 @@
-
 # OTSec — Offensive OT/IoT Security Toolkit
+
+[![PyPI Version](https://img.shields.io/pypi/v/otsec)](https://pypi.org/project/otsec/)
+[![Python Version](https://img.shields.io/pypi/pyversions/otsec)](https://pypi.org/project/otsec/)
+[![License](https://img.shields.io/badge/license-All%20Rights%20Reserved-red)](LICENSE)
+[![YouTube](https://img.shields.io/badge/YouTube-OTSec-blue)](https://www.youtube.com/@OTSec)
+
 
 **OTSec** is a professional-grade toolkit designed for offensive security testing and auditing of OT (Operational Technology) and IoT (Internet of Things) environments. It enables red teamers, security researchers, and industrial penetration testers to interact with and assess real-world OT/ICS/IoT networks in a safe and modular manner.
 
@@ -38,7 +43,24 @@ OTSec is suitable for:
 
 ## 📦 Installation
 
-### Recommended (Simple Usage)
+### ✅ Easiest Way (Recommended)
+
+You can install OTSec directly from [PyPI](https://pypi.org/project/otsec/):
+
+```bash
+pip install otsec 
+```
+
+
+Then simply run:
+
+```bash
+otsec or otsec shell
+```
+
+---
+
+### 🧪 For Developers (optional)
 
 ```bash
 git clone https://github.com/omar-tamerr/OTSec
@@ -46,8 +68,6 @@ cd OTSec
 pip install -r requirements.txt
 python3 run_otsec.py shell
 ```
-
-> ✅ No virtual environment needed — just install requirements and start the tool.
 
 ---
 
@@ -62,52 +82,52 @@ python3 run_otsec.py shell
 ### Run a Safe Scan
 
 ```bash
-python3 run_otsec.py scan 192.168.1.0/24 --safe
+otsec scan 192.168.1.0/24 --safe
 ```
 
 ### Read Modbus Registers
 
 ```bash
-python3 run_otsec.py modbus-read --host 192.168.1.50 --start 0 --count 5
+otsec modbus-read --host 192.168.1.50 --start 0 --count 5
 ```
 
 ### Inject Modbus Command (lab use only)
 
 ```bash
-python3 run_otsec.py inject --host 192.168.1.50 --function write_single_register --address 1 --value 1234
+otsec inject --host 192.168.1.50 --function write_single_register --address 1 --value 1234
 ```
 
 ---
 
-## 🖼️ Screenshots (With Descriptions)
+## 🖼️ Screenshots (with Description)
 
 ### 1. Interactive Shell Launch
 ![Shell Launch](src/otsec/img/normal-tool.png)  
-The entry point into the interactive mode of OTSec. Commands like `scan`, `inject`, or `modbus-read` can be typed here.
+> Entry point to OTSec’s interactive shell. You can type commands like `scan`, `inject`, or `modbus-read`.
 
 ### 2. Help Page
 ![Help Page](src/otsec/img/help-page.png)  
-Full command help with descriptions and parameters.
+> Displays available subcommands with usage hints and descriptions.
 
-### 3. Modbus Read
+### 3. Modbus Read Example
 ![Modbus Read](src/otsec/img/modbus-read.png)  
-Reads Modbus holding registers from an OT device.
+> Reads Modbus holding registers from an OT device.
 
-### 4. Inject Modbus (Lab Safe)
+### 4. Modbus Injection (Lab)
 ![Inject Modbus](src/otsec/img/inject-modbus.png)  
-Sends custom Modbus write operations (safe in lab only).
+> Fake data injection for Modbus. Use only in labs/simulations.
 
-### 5. Safe Scan
+### 5. Scan Subnet (Safe Mode)
 ![Safe Scan](src/otsec/img/safe-scan.png)  
-Performs TCP banner grabbing to identify OT/IoT protocols safely.
+> TCP-based scan showing banners and detected OT protocols.
 
-### 6. Vulnerability Scan
+### 6. Vulnerability Scan Output
 ![Vuln Scan](src/otsec/img/vuln-scan.png)  
-Matches banners with known CVEs and weak configurations.
+> Displays matched CVEs/misconfigs based on banners.
 
-### 7. Info Pages
-![Info Page 1](src/otsec/img/info-page1.png)  
-Quick protocol hints and threat intelligence built into the shell.
+### 7. Info Page
+![Info](src/otsec/img/info-page1.png)  
+> Offers protocol-specific notes and attack vectors.
 
 ---
 
@@ -116,12 +136,12 @@ Quick protocol hints and threat intelligence built into the shell.
 ```
 src/
 ├── otsec/
-│   ├── cli.py            # CLI entry point
-│   ├── core/             # Scanning, injection, shell modules
-│   ├── data/vulns.yaml   # Fingerprints and CVEs
-│   └── img/              # Screenshots and documentation visuals
-run_otsec.py              # Unified entry point script
-requirements.txt          # Required packages
+│   ├── cli.py            # Command-line entry
+│   ├── core/             # Modules for scanning, injecting, etc.
+│   ├── data/vulns.yaml   # Vulnerability hints and banner fingerprints
+│   └── img/              # Documentation images/screenshots
+run_otsec.py              # Single-file entry point
+requirements.txt          # Runtime dependencies
 ```
 
 ---
@@ -129,17 +149,13 @@ requirements.txt          # Required packages
 ## 📄 License
 
 All rights reserved © Omar Tamer  
-This software is intended for authorized testing, training, and research only.
+This software is provided for educational, ethical, and authorized testing only.
 
 ---
 
 ## 🌐 Author
 
 - **Name**: Omar Tamer  
-- **Title**: Offensive Security Researcher | ICS/IoT Pentester  
 - **Website**: [omar-tamerr.github.io](https://omar-tamerr.github.io)  
-- **LinkedIn**: [linkedin.com/in/omar-tamer](https://www.linkedin.com/in/omar-tamer-1a986b2a7)  
-- **YouTube**: [OTSec Channel](https://www.youtube.com/@OTSec)  
-- **GitHub**: [github.com/omar-tamerr](https://github.com/omar-tamerr)  
-- **Contact**: Available on website or via LinkedIn
+- **YouTube**: [OTSec Channel](https://www.youtube.com/@OTSec)
 
