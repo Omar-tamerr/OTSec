@@ -1,20 +1,20 @@
-# Python
+# Ignore Python cache
 __pycache__/
-*.py[cod]
+*.pyc
+
+# Ignore build artifacts
 *.egg-info/
-.eggs/
-*.so
-dist/
-build/
+*.eggs/
+*.log
+*.tmp
+*.bak
 
-# Virtual envs
+# Ignore virtual environments
 .venv/
-.env/
+env/
+venv/
 
-# Editors
-.vscode/
-.idea/
-
-# OS junk
+# Ignore OS files
 .DS_Store
 Thumbs.db
+

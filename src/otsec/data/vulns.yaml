@@ -1,0 +1,142 @@
+---
+# src/otsec/data/vulns.yaml
+# Extended OT/IoT vulnerability hints & signatures
+
+hints:
+  "Modbus (ICS)":
+    - "Insecure by design (no authentication, plaintext)."
+    - "Risk: register read/write manipulation, coil control."
+    - "Mitigate: segment network, gateway filtering, monitor unexpected
+      function codes."
+
+  "BACnet (Building Automation)":
+    - "Who-Is/I-Am discovery allows easy device enumeration."
+    - "Risk: write-property on misconfigured devices."
+    - "Mitigate: BBMD hygiene, BACnet/SC, ACLs, segment broadcast domains."
+
+  "EtherNet/IP (ICS)":
+    - "CIP exposure may allow discovery and tag manipulation on
+      misconfigured devices."
+    - "Mitigate: segment ICS zones, use ACLs, CIP security profiles."
+
+  "MQTT (IoT)":
+    - "Often runs with anonymous access or weak creds."
+    - "Risk: subscribe/publish without auth; topic brute-force."
+    - "Mitigate: disable anonymous, enable TLS + authz."
+
+  "MQTT over TLS":
+    - "Ensure certificate validation and topic-level authorization."
+    - "Weak TLS configs may allow MITM downgrade."
+
+  "HTTP (Web/IoT)":
+    - "Default creds and outdated embedded servers are common."
+    - "Risk: RCE, info leak, auth bypass (Boa, GoAhead, RomPager, lighttpd,
+      thttpd)."
+    - "Mitigate: change defaults, update firmware, block mgmt from untrusted
+      nets."
+
+  "RTSP (IP Camera)":
+    - "Streams are often unauthenticated and unencrypted."
+    - "Risk: sniffing/unauthorized viewing on old firmwares."
+    - "Mitigate: enforce auth, prefer SRTP, isolate camera VLAN."
+
+  "Telnet (Legacy/IoT)":
+    - "Legacy remote shell; often default/weak creds."
+    - "Mitigate: disable Telnet, use SSH with keys, restrict mgmt networks."
+
+  "SSH (IoT/Embedded)":
+    - "Harden auth (keys only) and restrict management networks."
+
+signatures:
+  # IoT/embedded web servers
+  - proto: "HTTP"
+    needle: "Boa"
+    notes:
+      - "CVE-2017-9833 – Boa web server info leak/DoS"
+      - "Check firmware vendor advisories (Boa is long-abandoned)."
+
+  - proto: "HTTP"
+    needle: "GoAhead"
+    notes:
+      - "CVE-2017-17562 – GoAhead overflow"
+      - "CVE-2017-5673 – GoAhead auth bypass"
+
+  - proto: "HTTP"
+    needle: "RomPager"
+    notes:
+      - "CVE-2014-9222 – Misfortune Cookie (remote takeover)"
+      - "Common in older routers, DSL modems, IoT appliances."
+
+  - proto: "HTTP"
+    needle: "lighttpd"
+    notes:
+      - "CVE-2018-19052 – Lighttpd auth bypass"
+      - "CVE-2019-11072 – Header smuggling in Lighttpd"
+
+  - proto: "HTTP"
+    needle: "thttpd"
+    notes:
+      - "CVE-2018-20167 – thttpd buffer overflow"
+      - "Often bundled in very old camera/web UI firmwares."
+
+  - proto: "HTTP"
+    needle: "uhttpd"
+    notes:
+      - "OpenWRT mini web server (uhttpd); confirm patch level."
+
+  - proto: "HTTP"
+    needle: "MiniWeb"
+    notes:
+      - "CVE-2018-18778 – MiniWeb buffer overflow"
+
+  - proto: "HTTP"
+    needle: "Basic realm=\""
+    notes:
+      - "HTTP Basic Auth challenge; check for default creds."
+
+  # Apache / Nginx / generic web
+  - proto: "HTTP"
+    needle: "Apache/"
+    notes:
+      - "Apache detected — review version & distro advisories."
+
+  - proto: "HTTP"
+    needle: "Apache/2\\.4\\.18"
+    regex: true
+    notes:
+      - "Outdated Apache 2.4.18 banner (Ubuntu Xenial default)."
+      - "Multiple CVEs exist; check USN advisories."
+
+  - proto: "HTTP"
+    needle: "nginx/"
+    notes:
+      - "nginx detected — review version & patch advisories."
+
+  # MQTT brokers
+  - proto: "MQTT"
+    needle: "Mosquitto"
+    notes:
+      - "CVE-2017-7653 – Auth bypass in Mosquitto <1.4.15"
+
+  - proto: "MQTT"
+    needle: "EMQ"
+    notes:
+      - "EMQX broker detected — verify version & TLS config."
+
+  # RTSP / IP cameras
+  - proto: "RTSP"
+    needle: "Dahua"
+    notes:
+      - "CVE-2017-7921 – Dahua IP camera auth bypass"
+
+  - proto: "RTSP"
+    needle: "Hikvision"
+    notes:
+      - "Hikvision IP camera — multiple CVEs in 2017–2020 firmware."
+
+  # Telnet banners (generic)
+  - proto: "GENERIC"
+    needle: "login:"
+    notes:
+      - "Telnet login prompt detected; check for default creds."
+

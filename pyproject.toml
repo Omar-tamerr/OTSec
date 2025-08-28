@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "otsec"
+version = "0.1.0"
+description = "Offensive OT/IoT Security Toolkit"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "All Rights Reserved" }
+authors = [{ name = "Omar Tamer" }]
+dependencies = [
+  "click>=8.1",
+  "scapy>=2.5.0",
+  "pymodbus>=3.6.6",
+   "PyYAML>=6.0",   # <-- add this
+]
+
+[tool.setuptools.package-data]
+otsec = ["data/*.yaml"]
+[project.scripts]
+otsec = "otsec.cli:main"
+
