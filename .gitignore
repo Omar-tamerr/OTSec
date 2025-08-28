@@ -1,20 +1,11 @@
-# Ignore Python cache
+# Python cache and build files
 __pycache__/
-*.pyc
-
-# Ignore build artifacts
+*.py[cod]
 *.egg-info/
-*.eggs/
+
+# Virtual environments
+.venv/
+
+# Logs or temp files (optional)
 *.log
 *.tmp
-*.bak
-
-# Ignore virtual environments
-.venv/
-env/
-venv/
-
-# Ignore OS files
-.DS_Store
-Thumbs.db
-
