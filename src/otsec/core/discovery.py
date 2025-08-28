@@ -1,5 +1,3 @@
-# src/otsec/core/discovery.py
-
 from __future__ import annotations
 
 import os
@@ -279,7 +277,7 @@ def scan_subnet(
     conf.verb = 0  # silence scapy chatter
 
     if vuln:
-        # Lazy import to avoid cycles and optional dependency issues
+        # Note: Lazy import to avoid cycles and optional dependency issues
         from otsec.core.vuln_db import get_hints_for_services, get_cves_from_fingerprints
 
     ips = _iter_targets(cidr)

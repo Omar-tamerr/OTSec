@@ -6,7 +6,7 @@ from otsec.core.discovery import scan_subnet
 from otsec.core.shell import interactive_shell
 from otsec.core.injectors.modbus import (
     write_holding_register,
-    read_holding_registers,  # NOTE: plural
+    read_holding_registers,  
 )
 # from otsec.core.banner import banner_text
 
@@ -15,7 +15,7 @@ from otsec.core.injectors.modbus import (
 @click.version_option("0.1", prog_name="OTSec")
 def main():
     """OTSec - Offensive OT/IoT Security Toolkit"""
-    # Do NOT print the big banner here; the shell handles it.
+    #Note: Do NOT print the big banner here; the shell handles it.
     pass
 
 

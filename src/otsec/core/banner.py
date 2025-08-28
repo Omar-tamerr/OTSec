@@ -1,5 +1,3 @@
-# src/otsec/core/banner.py
-
 def banner_text(version: str = "0.1") -> str:
     # ANSI styles
     BLUE = "\033[94m"

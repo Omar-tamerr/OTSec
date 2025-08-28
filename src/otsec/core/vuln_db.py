@@ -1,25 +1,3 @@
-# src/otsec/core/vuln_db.py
-"""
-YAML-backed IoT/OT vulnerability hints & signatures with safe built-ins.
-
-Load order (merged in this order):
-  1) Built-in defaults in this file
-  2) Packaged YAML at otsec/data/vulns.yaml (if present)
-  3) External YAML pointed by env var OTSEC_VULN_DB (if present)
-
-YAML schema:
-  hints:
-    "<service-name>":
-      - "hint string"
-      - ...
-  signatures:
-    - proto: "HTTP|RTSP|MQTT|BACnet|GENERIC"
-      needle: "text or regex"
-      regex: true|false   # optional, default false
-      notes:
-        - "CVE-..., advisory, or remediation"
-        - ...
-"""
 
 from __future__ import annotations
 from typing import Dict, List, Tuple, Any
@@ -92,7 +70,7 @@ _BUILTIN_HINTS: Dict[str, List[str]] = {
 }
 
 # Built-in signatures (safe, common)
-# Use concise, *indicative* notes to avoid false positives across distros with backports.
+# Use concise, *indicative* notes to avoid false positives across distros with backports. very important!!!!!
 _BUILTIN_SIGNATURES: List[Dict[str, Any]] = [
     # IoT/embedded web servers
     {"proto": "HTTP", "needle": "Boa",      "regex": False, "notes": ["CVE-2017-9833 – Boa info leak/DoS (check version)."]},

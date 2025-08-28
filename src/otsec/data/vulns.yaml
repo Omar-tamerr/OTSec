@@ -1,5 +1,3 @@
----
-# src/otsec/data/vulns.yaml
 # Extended OT/IoT vulnerability hints & signatures
 
 hints:
