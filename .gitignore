@@ -9,3 +9,4 @@ __pycache__/
 # Logs or temp files (optional)
 *.log
 *.tmp
+results.json

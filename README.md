@@ -138,7 +138,7 @@ This software is intended for authorized testing, training, and research only.
 - **Name**: Omar Tamer  
 - **Title**: Offensive Security Researcher | ICS/IoT Pentester  
 - **Website**: [omar-tamerr.github.io](https://omar-tamerr.github.io)  
-- **LinkedIn**: [linkedin.com/in/omar-tamer](https://www.linkedin.com/in/omar-tamer)  
+- **LinkedIn**: [linkedin.com/in/omar-tamer](https://www.linkedin.com/in/omar-tamer-1a986b2a7)  
 - **YouTube**: [OTSec Channel](https://www.youtube.com/@OTSec)  
 - **GitHub**: [github.com/omar-tamerr](https://github.com/omar-tamerr)  
 - **Contact**: Available on website or via LinkedIn
