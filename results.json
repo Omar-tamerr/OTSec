@@ -1,0 +1,88 @@
+{
+  "generated_at_utc": "2025-08-28T20:55:02Z",
+  "tool": "OTSec",
+  "results": [
+    {
+      "ip": "10.10.233.25",
+      "open_ports": [
+        502,
+        20000,
+        47808,
+        44818,
+        1883,
+        8883,
+        554,
+        80,
+        81,
+        8000,
+        8080,
+        8443,
+        443,
+        23,
+        22
+      ],
+      "services": [
+        "Modbus (ICS)",
+        "DNP3 (ICS)",
+        "BACnet (Building Automation)",
+        "EtherNet/IP (ICS)",
+        "MQTT (IoT)",
+        "MQTT over TLS",
+        "RTSP (IP Camera)",
+        "HTTP (Web/IoT)",
+        "HTTP-alt (IoT)",
+        "HTTP-alt (IoT)",
+        "HTTP-alt (IoT)",
+        "HTTPS-alt (IoT)",
+        "HTTPS (Web/IoT)",
+        "Telnet (Legacy/IoT)",
+        "SSH (IoT/Embedded)"
+      ],
+      "proto_hint": "modbus",
+      "fingerprints": {
+        "http_firstline": "HTTP/1.1 200 OK",
+        "http_server": "Apache/2.4.18 (Ubuntu)",
+        "http_title": "Apache2 Ubuntu Default Page: It works",
+        "mqtt_tls": "open (TLS not probed)"
+      },
+      "vuln_hints": [
+        "Insecure by design (no authentication, plaintext).",
+        "Risk: register read/write manipulation, coil control.",
+        "Mitigate: segment network, gateway filtering, monitor unexpected function codes.",
+        "Who-Is/I-Am discovery allows easy device enumeration.",
+        "Risk: write-property on misconfigured devices.",
+        "Mitigate: BBMD hygiene, BACnet/SC, ACLs, segment broadcast domains.",
+        "CIP exposure may allow discovery and tag manipulation on misconfigured devices.",
+        "Mitigate: cell/area zones, ACLs, CIP security profiles where available.",
+        "Mitigate: segment ICS zones, use ACLs, CIP security profiles.",
+        "Often runs with anonymous access or weak creds.",
+        "Risk: subscribe/publish without auth; topic brute-force.",
+        "Mitigate: disable anonymous, TLS + authz, audit retained topics.",
+        "Mitigate: disable anonymous, enable TLS + authz.",
+        "Ensure server/client cert validation and topic-level authorization.",
+        "Ensure certificate validation and topic-level authorization.",
+        "Weak TLS configs may allow MITM downgrade.",
+        "Streams are often unauthenticated and unencrypted.",
+        "Risk: sniffing/unauthorized viewing on old firmwares.",
+        "Mitigate: enforce auth, prefer SRTP, isolate camera VLAN.",
+        "Default creds and outdated embedded servers are common.",
+        "Risk: RCE, info leak, auth bypass (Boa, GoAhead, RomPager).",
+        "Mitigate: change defaults, update firmware, block mgmt from untrusted nets.",
+        "Risk: RCE, info leak, auth bypass (Boa, GoAhead, RomPager, lighttpd, thttpd).",
+        "Same risks as HTTP; check alternative web UI on this port.",
+        "Alternate HTTPS admin UI; confirm cert and patch level.",
+        "Verify TLS config and firmware patch level; embedded servers are often old.",
+        "Legacy remote shell; often default/weak creds.",
+        "Mitigate: disable Telnet, use SSH with keys, segment mgmt.",
+        "Mitigate: disable Telnet, use SSH with keys, restrict mgmt networks.",
+        "Harden auth (keys only) and restrict management networks."
+      ],
+      "vuln_cves": [
+        "Apache detected \u2014 review version & distro advisories.",
+        "Outdated Apache banner (2.4.18). Check backports & update.",
+        "Outdated Apache 2.4.18 banner (Ubuntu Xenial default).",
+        "Multiple CVEs exist; check USN advisories."
+      ]
+    }
+  ]
+}
