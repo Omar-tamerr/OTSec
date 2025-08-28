@@ -1,6 +1,6 @@
 [project]
 name = "otsec"
-version = "0.1.0"
+version = "0.1.1"
 description = "Offensive OT/IoT Security Toolkit"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -29,7 +29,8 @@ otsec = "otsec.cli:main"
 
 [tool.setuptools]
 package-dir = {"" = "src"}
-packages = ["otsec"]
+include-package-data = true
+packages = ["otsec", "otsec.core", "otsec.core.injectors"]
 
 [tool.setuptools.package-data]
 "otsec" = ["data/*.yaml"]
