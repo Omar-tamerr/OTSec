@@ -2,7 +2,7 @@ Source: otsec
 Section: utils
 Priority: optional
 Maintainer: Omar Tamer <omartamerrr3@gmail.com>
-Build-Depends: debhelper-compat (= 13), dh-python, python3-all, python3-setuptools, python3-wheel
+Build-Depends: debhelper-compat (= 13), dh-python, python3-all, python3-setuptools, python3-wheel, pybuild-plugin-pyproject
 Standards-Version: 4.7.0
 Homepage: https://github.com/omar-tamerr/OTSec
 Rules-Requires-Root: no

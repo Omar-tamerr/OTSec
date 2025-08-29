@@ -1,3 +1,7 @@
+# OTSec - Offensive OT/IoT Security Toolkit
+# Copyright (c) 2025 Omar Tamer
+# Licensed under the MIT License (see LICENSE file for details)
+
 from __future__ import annotations
 
 import os

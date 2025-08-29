@@ -1,0 +1,31 @@
+.TH otsec 1 "OTSec Manual"
+.SH NAME
+otsec \- Offensive OT/IoT Security Toolkit
+.SH SYNOPSIS
+.B otsec
+.RI [OPTIONS] " COMMAND [ARGS]..."
+.SH DESCRIPTION
+OTSec provides OT/IoT discovery, Modbus operations (read/inject),
+banner analysis, and vulnerability checks for lab and red-team use.
+.SH OPTIONS
+.TP
+.BR \-h , " --help"
+Show help and exit.
+.TP
+.BR --version
+Show version and exit.
+.SH COMMANDS
+.TP
+.B scan
+Discover OT/IoT devices on a subnet.
+.TP
+.B modbus-read
+Read Modbus holding registers (read-only).
+.TP
+.B inject
+Inject false data / manipulate values (lab-only).
+.TP
+.B shell
+Start OTSec interactive shell.
+.SH HOMEPAGE
+https://github.com/omar-tamerr/OTSec

@@ -1,3 +1,7 @@
+# OTSec - Offensive OT/IoT Security Toolkit
+# Copyright (c) 2025 Omar Tamer
+# Licensed under the MIT License (see LICENSE file for details)
+
 def banner_text(version: str = "0.1") -> str:
     # ANSI styles
     BLUE = "\033[94m"
