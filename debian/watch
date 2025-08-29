@@ -1,0 +1,3 @@
+version=4
+opts=filenamemangle=s/.+\/v?(\d\S*)\.tar\.gz/otsec-$1\.tar\.gz/ \
+  https://github.com/omar-tamerr/OTSec/tags .*/v?([0-9].*)\.tar\.gz
