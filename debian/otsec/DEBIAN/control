@@ -1,0 +1,13 @@
+Package: otsec
+Version: 0.1.1-1
+Architecture: all
+Maintainer: Omar Tamer <omartamerrr3@gmail.com>
+Installed-Size: 98
+Depends: python3-click, python3-pymodbus, python3-scapy, python3-yaml, python3:any
+Section: utils
+Priority: optional
+Homepage: https://github.com/omar-tamerr/OTSec
+Description: Offensive OT/IoT Security Toolkit (CLI)
+ OTSec is a Python-based toolkit for offensive security testing in OT/IoT
+ environments (discovery, Modbus operations, banner & vuln checks, etc.).
+ Useful for red teamers, ICS/SCADA testers, and smart building research.
